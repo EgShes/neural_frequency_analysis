@@ -5,12 +5,12 @@ import re
 import pandas as pd
 
 data_path_raw = '../data/raw'
-data_path_proc = '../data/processed'
+data_path_proc = '../data/interim'
 print(os.getcwd())
 
 for file in os.listdir(data_path_raw):
     with open(osp.join(data_path_raw, file), 'r') as f:
-        text = f.read()
+        text = f.read().lower()
 
     text = re.sub('<unk>', '', text)
     text = re.sub(" '", "'", text)
