@@ -14,7 +14,8 @@ for file in os.listdir(data_path_raw):
 
     text = re.sub('<unk>', '', text)
     text = re.sub(" '", "'", text)
-    text = re.sub('[^\w\s=]', '', text)
+    # all non-English letters are removed
+    text = re.sub('[^a-zA-Z0-9\s=]', '', text)
     text = re.sub(' +', ' ', text)
     text = re.sub('\n \n \n ', '\n \n \n \n', text)
 
